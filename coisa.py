@@ -17,6 +17,8 @@ class ChatBot(MDApp):
          screen_manager.add_widget(Builder.load_file("Main.kv"))
          screen_manager.add_widget(Builder.load_file("Chats.kv"))
          return screen_manager
+    
+    
 
 
 
