@@ -5,12 +5,12 @@ MDScreen:
         Image:
             source: "chat.png"
             size_hint: .5, .3
-            pos_hint: {"cente_x": .5, "center_y": .3}
+            pos_hint: {"center_x": .5, "center_y": .8}
         MDLabel:
             text: "Olá meu cumparça"
             font_name:"Poppins-SemiBold.ttf"
             font_size:"35sp"
-            pos_hint: {"cente_x": .5, "center_y": .53}
+            pos_hint: {"center_x": .5, "center_y": .53}
             haling:"center"
             theme_text_color:"Custom"
             text_color: 53/255, 56/255, 65/255, 1
@@ -19,15 +19,40 @@ MDScreen:
             sixe_hint_x: .9
             font_name:"Poppins-Regular.ttf"
             font_size:"18sp"
-            pos_hint: {"cente_x": .5, "center_y": .40}
+            pos_hint: {"center_x": .5, "center_y": .40}
             haling:"center"
             theme_text_color: "Custom"
             text_color: 53/255, 56/255, 65/255, 1
         MDLabel:
-            text:"Leia-a me primeiro"
-            font_name:"Poppins-Regular.ttf"
-            font_size:"18sp"
-            pos_hint: {"cente_x": .5, "center_y": .35}
-            haling:"center"
+            text: "Leia-a me primeiro"
+            font_name: "Poppins-Regular.ttf"
+            font_size: "18sp"
+            pos_hint: {"center_x": .5, "center_y": .33}
+            haling: "center"
             theme_text_color: "Custom"
-            text_color: 53/255, 56/255, 65/255, 1
+            underline: "True"
+            text_color: 1, 170/255, 23/255, 1
+        MDFloatLayout:
+            size_hint: .85, .08
+             pos_hint: {"center_x": .5, "center_y": .22}
+             canvas:
+                Color:
+                    rgb:(238/255, 238/255, 238/255, 1)
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [22, 22, 22, 22]
+            TextInput:
+                hint_text: "Chatbot Nome"
+                size_hint: 1, None
+                pos_hint: {"center_x": .5, "center_y": .5}
+                font_size: "18sp"
+                height: self.minimum_height
+                cursor_color: 1, 170/255, 23/255, 1
+                cursor_size: "2sp"
+                foreground_color: 1, 170/255, 23/255, 1
+                background_color: 0, 0, 0, 0, 0
+                padding: 15
+                font_name: "Poppins-Regular.ttf"
+
+
