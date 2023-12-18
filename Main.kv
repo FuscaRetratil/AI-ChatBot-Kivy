@@ -7,7 +7,7 @@ MDScreen:
             size_hint: .5, .3
             pos_hint: {"center_x": .5, "center_y": .8}
         MDLabel:
-            text: "Olá meu cumparça"
+            text: "Eaí, meu cumparça"
             font_name:"Poppins-SemiBold.ttf"
             font_size:"35sp"
             pos_hint: {"center_x": .5, "center_y": .53}
@@ -15,7 +15,7 @@ MDScreen:
             theme_text_color:"Custom"
             text_color: 53/255, 56/255, 65/255, 1
         MDLabel:
-            text:"Seu assistente digital para guiar você"
+            text:"Sou teu assistente digital e vou te guiar"
             sixe_hint_x: .9
             font_name:"Poppins-Regular.ttf"
             font_size:"18sp"
@@ -55,19 +55,21 @@ MDScreen:
                 background_color: 0, 0, 0, 0
                 padding: 15
                 font_name: "Poppins-SemiBold.ttf"
-        Button:
+        MDRaisedButton:
             text: " "
             size_hint: .45, .08
             pos_hint: {"center_x": .5, "center_y": .1}
-            background_color: 170/255, 22/255, 1, 1
+            md_bg_color: 170/255, 22/255, 1, 1
             padding: 15
             on_release:
-                root.manager.transition.direction = "left"
+                root.manager.transition.direction = "up"
                 root.manager.current = "chats"
         MDLabel:
             text: "Vamos conversar"
-            text_color: 53/255, 56/255, 65/255, 1
+            theme_text_color: "Custom"
+            text_color: 240/255, 240/255, 240/255, 1
             halign: "center"
+            padding: 15
             pos_hint: {"center_y": .1}
             font_name: "Poppins-SemiBold.ttf"
 
