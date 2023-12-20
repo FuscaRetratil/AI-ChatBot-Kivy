@@ -3,6 +3,7 @@ from kivy.lang import Builder
 from kivy.core.window import Window
 from kivy.uix.screenmanager import ScreenManager
 from kivymd.uix.button.button import MDRaisedButton
+from kivy.core.text import LabelBase
 Window.size = (350, 550)
 
 class ChatBot(MDApp):
@@ -25,5 +26,7 @@ class ChatBot(MDApp):
 
 
 
+
 if __name__ == "__main__":
+    LabelBase.register(name="Poppins", fn_regular="Poppins-Regular.ttf")
     ChatBot().run()
