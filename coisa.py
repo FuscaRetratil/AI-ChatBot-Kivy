@@ -31,7 +31,7 @@ class ChatBot(MDApp):
                 {"role": "user", "content": mensagem}
             ],
         )
-        return resposta ["choices"][0]["mensagem"]
+        return resposta ["choices"][0]["message"]
 
 
 
