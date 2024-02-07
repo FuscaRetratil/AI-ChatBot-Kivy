@@ -4,8 +4,11 @@ from kivy.core.window import Window
 from kivy.uix.screenmanager import ScreenManager
 from kivymd.uix.button.button import MDRaisedButton
 from kivy.core.text import LabelBase
-from kivymd.uix.button.button import MDRaisedButton1
+import openai
 Window.size = (350, 550)
+
+chave_api = "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"
+openai.api_key = chave_api
 
 class ChatBot(MDApp):
 
@@ -21,13 +24,14 @@ class ChatBot(MDApp):
          screen_manager.add_widget(Builder.load_file("Chats.kv"))
          return screen_manager
     
-    def pegar_chatbot_resposta(user_input):
-        openai = 
-        
-
-    
-    
-
+    def enviar_mensagem(mensagem):
+        resposta = openai.client.chat.completions.create (
+            model = "gpt-3.5-turbo",
+            messages = [
+                {"role": "user", "content": mensagem}
+            ],
+        )
+        return resposta ["choices"][0]["mensagem"]
 
 
 
