@@ -4,13 +4,28 @@ from kivy.core.window import Window
 from kivy.uix.screenmanager import ScreenManager
 from kivymd.uix.button.button import MDRaisedButton
 from kivy.core.text import LabelBase
+from kivymd.uix.label import MDLabel
+from kivy.properties import StringProperty, NumericProperty
 from openai import OpenAI
-import openai
 import os
 Window.size = (350, 550)
 
-openai.api_key = os.getenv("OPENAI_API_KEY")
-client = OpenAI()
+client = OpenAI(api_key = os.getenv("OPENAI_API_KEY"))
+
+class Comando (MDLabel):
+    text = StringProperty()
+    size_hint_x = NumericProperty()
+    halign = StringProperty()
+    font_name = "Poppins"
+    font_size = 17
+
+
+class Response (MDLabel):
+    text = StringProperty()
+    size_hint_x = NumericProperty()
+    halign = StringProperty()
+    font_name = "Poppins"
+    font_size = 17
 
 class ChatBot(MDApp):
 
@@ -28,12 +43,9 @@ class ChatBot(MDApp):
         resposta = client.chat.completions.create(
             model = "gpt-3.5-turbo",
             messages = [
-                {"role": "user", "content": mensagem}
-            ],
+                {"role": "user", "content": mensagem} ],
         )
-        return resposta ["choices"][0]["message"]
-    
-print(enviar_mensagem("Quando foi construída a estátua da liberdade?"))
+        return resposta.choices[0].message.content.strip() 
 
 if __name__ == "__main__":
     LabelBase.register(name="Poppins", fn_regular="Poppins-Regular.ttf")
