@@ -39,14 +39,21 @@ class ChatBot(MDApp):
          screen_manager.add_widget(Builder.load_file("Chats.kv"))
          return screen_manager
     
-    def enviar_mensagem(mensagem):
-        resposta = client.chat.completions.create(
-            model = "gpt-3.5-turbo",
-            messages = [
-                {"role": "user", "content": mensagem} ],
-        )
-        return resposta.choices[0].message.content.strip() 
+    # def enviar_mensagem(mensagem):
+    #     resposta = client.chat.completions.create(
+    #         model = "gpt-3.5-turbo",
+    #         messages = [
+    #             {"role": "user", "content": mensagem} ],
+    #         )
+    #     return resposta.choices[0].message.content.strip()
+    
+    def send (self):
+        screen_manager.get_screen('chats').chat_list.add_widget(
+                Comando(text="value", size_hint_x=0.2, halign= "center"))
+
+
 
 if __name__ == "__main__":
     LabelBase.register(name="Poppins", fn_regular="Poppins-Regular.ttf")
     ChatBot().run()
+    
