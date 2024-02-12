@@ -1,6 +1,29 @@
 <Comando>
+    size_hint_y: None
+    pos_hint: {"right": .98}
+    height: self.texture_size[1]
+    padding: 12, 10
+    theme_text_color: "Custom"
+    text_color: 1, 1, 1, 1
+    canvas.before:
+        Color:
+            rgb: (1, 170/255, 23/255, 1)
+        RoundedRectangle:
+            size: self.width, self.height
+            pos: self.pos
+            radius: [23, 23, 0, 23]
 <Response>
-
+    size_hint_y: None
+    pos_hint: {"x": .02}
+    height: self.texture_size[1]
+    padding: 12, 10
+    canvas.before:
+        Color:
+            rgb: (1, 1, 1, 1)
+        RoundedRectangle:
+            size: self.width, self.height
+            pos: self.pos
+            radius: [23, 23, 23, 0]
 
 MDScreen:
     bot_name: bot_name
@@ -71,7 +94,7 @@ MDScreen:
                 user_font_size: "18sp"
                 theme_text_color: "Custom"
                 md_bg_color: 170/255, 22/255, 1, 1
-                on_release: app.enviar_mensagem(text_input)
+                on_release: app.send(text_input)
 
 
             
