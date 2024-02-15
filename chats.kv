@@ -36,7 +36,7 @@ MDScreen:
         pos_hint: {"center_y": .95}
         MDLabel:
             id: bot_name
-            text: 'JARVIS'
+            text: ""
             pos_hint: {"center_y": .5}
             halign: "center"
             font_name: "Poppins-SemiBold.ttf"
@@ -61,6 +61,8 @@ MDScreen:
                 pos_hint: {"top": 10}
                 cols: 1
                 spacing: 5
+                Comando
+                Response
         MDFloatLayout:
             md_bg_color: 245/255, 245/255, 245/255, 1
             size_hint_y: .9
@@ -88,13 +90,12 @@ MDScreen:
                     background_color: 0, 0, 0, 0
                     padding: 15
                     font_name: "Poppins"
+                    on_text_validate: app.enviar()
+                    on_focus:  if not self.focus:app.screen_manager.current = 'chats'
             MDIconButton:
                 icon: "send"
                 pos_hint: {'center_x': .91,'center_y': .5}
                 user_font_size: "18sp"
                 theme_text_color: "Custom"
                 md_bg_color: 170/255, 22/255, 1, 1
-                on_release: app.send(text_input)
-
-
-            
+                on_release: app.enviar()
