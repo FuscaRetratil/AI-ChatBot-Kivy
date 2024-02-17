@@ -29,19 +29,22 @@ class Response (MDLabel):
 class ChatBot(MDApp):
     def __init__(self):
         super().__init__()
-        self.client = OpenAI(api_key = os.getenv("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"))
+        self.client = OpenAI(api_key = os.getenv('OPENAI_API_KEY'))
+        self.built = False
 
     def mudar_tela(self, nome):
         self.screen_manager.current = nome
 
     def build(self):
-         self.screen_manager = ScreenManager ()
-         self.screen_manager.add_widget(Builder.load_file("Main.kv"))
-         self.screen_manager.add_widget(Builder.load_file("Chats.kv"))
-         return self.screen_manager 
+        self.screen_manager = ScreenManager()
+        self.screen_manager.add_widget(Builder.load_file("Main.kv"))
+        self.screen_manager.add_widget(Builder.load_file("Chats.kv"))
+        self.built = True
+        return self.screen_manager
+    
     def bot_name(self):
-        if self.screen_manager.get_screen('main').bot_name.text != "":
-            self.screen_manager.get_screen('chats').bot_name.text = self.screen_manager.get_screen('main').bot_name.text
+        if self.screen_manager.get_screen("main").bot_name.text !='':
+            self.screen_manager.get_screen("chats").bot_name.text = self.screen_manager.get_screen("main").bot_name.text
             self.screen_manager.current = "chats"
     
     def enviar_mensagem(self, mensagem):
@@ -58,10 +61,10 @@ class ChatBot(MDApp):
     def enviar(self):
         user_input = self.screen_manager.get_screen('chats').ids.user_input.text
         self.screen_manager.get_screen('chats').ids.chat_list.add_widget(
-            Comando(text=user_input, size_hint_x=0.2, halign="center"))
+            Comando(text = user_input, size_hint_x = 0.2, halign = "center"))
         resposta = self.enviar_mensagem(user_input)
         self.screen_manager.get_screen('chats').ids.chat_list.add_widget(
-            Response(text=resposta, size_hint_x=0.8, halign="left"))
+            Response(text = resposta, size_hint_x = 0.8, halign = "left"))
         self.screen_manager.get_screen('chats').ids.user_input.text = ""
 
 
