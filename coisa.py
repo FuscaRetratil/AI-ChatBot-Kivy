@@ -61,7 +61,7 @@ class ChatBot(MDApp):
     def enviar(self):
         user_input = self.screen_manager.get_screen('chats').ids.user_input.text
         self.screen_manager.get_screen('chats').ids.chat_list.add_widget(
-            Comando(text = user_input, size_hint_x = 0.2, halign = "center"))
+            Comando(text = user_input, size_hint_x = 0.2, halign = "right"))
         resposta = self.enviar_mensagem(user_input)
         self.screen_manager.get_screen('chats').ids.chat_list.add_widget(
             Response(text = resposta, size_hint_x = 0.8, halign = "left"))
