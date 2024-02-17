@@ -1,13 +1,13 @@
 <Comando>
     size_hint_y: None
-    pos_hint: {"right": .98}
+    pos_hint: {"x": .98}
     height: self.texture_size[1]
     padding: 12, 10
     theme_text_color: "Custom"
     text_color: 1, 1, 1, 1
     canvas.before:
         Color:
-            rgb: (1, 170/255, 23/255, 1)
+            rgb: (170/255, 22/255, 1, 1)
         RoundedRectangle:
             size: self.width, self.height
             pos: self.pos
@@ -27,26 +27,23 @@
 
 MDScreen:
     bot_name: bot_name
-    text_input: text_input
+    user_input: user_input
     chat_list: chat_list
     name: "chats"
     MDFloatLayout:
-        md_bg_color: 245/255, 245/255, 245/255, 1
-        size_hint_y: .11
-        pos_hint: {"center_y": .95}
-        MDLabel:
-            id: bot_name
-            text: ""
-            pos_hint: {"center_y": .5}
-            halign: "center"
-            font_name: "Poppins-SemiBold.ttf"
-            font_size: "25sp"
-            theme_text_color: "Custom"
-            text_color: 53/255, 56/255, 60/255, 1
-        #  MDLabel:
-        #      id: chat_output
-        #      text: ''
-        #      size_hint_y: None
+        MDFloatLayout:
+            md_bg_color: 245/255, 245/255, 245/255, 1
+            size_hint_y: .11
+            pos_hint: {"center_y": .95}
+            MDLabel:
+                id: bot_name
+                text: ""
+                pos_hint: {"center_y": .5}
+                halign: "center"
+                font_name: "Poppins-SemiBold.ttf"
+                font_size: "25sp"
+                theme_text_color: "Custom"
+                text_color: 53/255, 56/255, 60/255, 1
         ScrollView:
             size_hint_y: .77
             pos_hint: {"x": 0, "y": .116}
@@ -61,11 +58,9 @@ MDScreen:
                 pos_hint: {"top": 10}
                 cols: 1
                 spacing: 5
-                Comando
-                Response
         MDFloatLayout:
             md_bg_color: 245/255, 245/255, 245/255, 1
-            size_hint_y: .9
+            size_hint_y: .11
             MDFloatLayout:
                 size_hint: .8, .75
                 pos_hint: {'center_x': .43,'center_y': .5}
@@ -77,7 +72,7 @@ MDScreen:
                         pos: self.pos
                         radius: [23, 23, 23, 23]
                 TextInput:
-                    id: text_input
+                    id: user_input
                     hint_text: "Escreva sua mensagem..."
                     size_hint: 1, None
                     pos_hint: {'center_x': .5,'center_y': .5}
