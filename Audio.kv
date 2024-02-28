@@ -1,0 +1,45 @@
+MDScreen:
+    name: "audio"
+    text: text
+    MDFloatLayout:
+        MDFloatLayout:
+            md_bg_color: 245/255, 245/255, 245/255, 1
+            size_hint_y: .11
+            MDFloatLayout:
+                size_hint: .8, .75
+                pos_hint: {'center_x': .5,'center_y': .5}
+                canvas:
+                    Color:
+                        rgb: (238/255, 238/255, 238/255, 1)
+                    RoundedRectangle:
+                        size: self.size
+                        pos: self.pos
+                        radius: [23, 23, 23, 23]
+                #  MDLabel:
+                #     text: "Texto Para Áudio"
+                #     theme_text_color: "Custom"
+                #     text_color: 33/255, 33/255, 33/255, 1
+                #     pos_hint: {"center_x": .5, "center_y": .23}
+                #     halign: "center"
+                #     padding: 15
+                TextInput:
+                    id: text
+                    hint_text: "Escreva sua mensagem..."
+                    size_hint: 1, None
+                    pos_hint: {'center_x': .5,'center_y': .5}
+                    font_size: "18sp"
+                    height: self.minimum_height
+                    multiline: False
+                    cursor_color: 170/255, 22/255, 1, 1
+                    cursor_width: "2sp"
+                    foreground_color: 170/255, 22/255, 1, 1
+                    background_color: 0, 0, 0, 0
+                    padding: 15
+                    font_name: "Poppins"
+            MDIconButton:
+                icon: "send"
+                pos_hint: {'center_x': .91,'center_y': .5}
+                user_font_size: "18sp"
+                theme_text_color: "Custom"
+                md_bg_color: 170/255, 22/255, 1, 1
+                on_release: app.falar()
