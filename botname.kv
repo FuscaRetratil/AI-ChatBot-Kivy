@@ -1,0 +1,80 @@
+MDScreen:
+    name: "botname"
+    bot_name: bot_name
+    MDFloatLayout:
+        md_bg_color: 1, 1, 1, 1
+        Image:
+            source: "chat.png"
+            size_hint: .5, .3
+            pos_hint: {"center_x": .5, "center_y": .8}
+        MDLabel:
+            text: "Eaí, meu parceiro!"
+            font_name:"Poppins-SemiBold.ttf"
+            font_size:"35sp"
+            pos_hint: {"center_x": .5, "center_y": .53}
+            halign:"center"
+            theme_text_color:"Custom"
+            text_color: 53/255, 56/255, 65/255, 1
+        MDLabel:
+            text:"Sou teu amigo virtual, vamos conversar?"
+            sixe_hint_x: .9
+            font_name:"Poppins-Regular.ttf"
+            font_size:"18sp"
+            pos_hint: {"center_x": .5, "center_y": .40}
+            halign:"center"
+            theme_text_color: "Custom"
+            text_color: 53/255, 56/255, 65/255, 1
+        # #MDLabel:
+        #     text: "Leia-a me primeiro"
+        #     font_name: "Poppins-Regular.ttf"
+        #     font_size: "18sp"
+        #     pos_hint: {"center_x": .5, "center_y": .33}
+        #     halign: "center"
+        #     theme_text_color: "Custom"
+        #     underline: "True"
+        #     text_color: 170/255, 22/255, 1, 1
+        MDFloatLayout:
+            size_hint: .85, .08
+            pos_hint: {"center_x": .5, "center_y": .23}
+            canvas:
+                Color:
+                    rgb:(238/255, 238/255, 238/255, 1)
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [22, 22, 22, 22]
+            TextInput:
+                id: bot_name
+                hint_text: "Nome do Bot"
+                size_hint: 1, None
+                pos_hint: {"center_x": .5, "center_y": .5}
+                font_size: "18sp"
+                height: self.minimum_height
+                cursor_color: 170/255, 22/255, 1, 1
+                cursor_size: "2sp"
+                multiline: False
+                foreground_color: 170/255, 22/255, 1, 1
+                background_color: 0, 0, 0, 0
+                padding: 15
+                font_name: "Poppins-SemiBold.ttf"
+                on_text_validate: app.bot_name()
+                on_focus:  
+                    if not self.focus:app.screen_manager.current = 'chats'
+        MDRaisedButton:
+            text: " "
+            size_hint: .45, .08
+            pos_hint: {"center_x": .5, "center_y": .1}
+            md_bg_color: 170/255, 22/255, 1, 1
+            padding: 15
+            on_release:
+                root.manager.transition.direction = "up"
+                app.bot_name()
+        MDLabel:
+            text: "Vamos conversar"
+            theme_text_color: "Custom"
+            text_color: 240/255, 240/255, 240/255, 1
+            halign: "center"
+            padding: 15
+            pos_hint: {"center_y": .1}
+            font_name: "Poppins-SemiBold.ttf"
+
